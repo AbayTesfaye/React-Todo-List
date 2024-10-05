@@ -1,8 +1,24 @@
-function TodoInput() {
+import { useState } from "react";
+
+function TodoInput(props) {
+  const { handleAddTodo } = props;
+  const [todoValue, setTodoValue] = useState(""); // State to track the input value
+
   return (
     <header>
-      <input placeholder="Enter todo..." />
-      <button>Add</button>
+      <input
+        value={todoValue} // Set input value from state
+        onChange={(e) => setTodoValue(e.target.value)} // Update state on input change
+        placeholder="Enter todo..."
+      />
+      <button
+        onClick={() => {
+          handleAddTodo(todoValue); // Add the todo using the function passed via props
+          setTodoValue(""); // Clear the input field after adding the todo
+        }}
+      >
+        Add
+      </button>
     </header>
   );
 }
