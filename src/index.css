@@ -1,114 +1,194 @@
+/* General Styles */
 * {
   font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #202124;
 }
 
-h1,
-h2,
-h3,
-input,
-button {
-  font-family: "Press Start 2P", system-ui;
-}
-
-#root {
+body {
+  background: linear-gradient(135deg, #e2ebf0, #d7e4f2);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  padding: 14px;
-  background: #eff6ff;
-  gap: 14px;
+  justify-content: center;
+  align-items: center;
 }
 
-header {
-  display: flex;
-  align-items: stretch;
-}
-
-header,
-.main {
+/* Container */
+#root {
   max-width: 800px;
   width: 100%;
-  margin: 0 auto;
+  padding: 20px;
+  background: #f7f9fc;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Header (Input and Add Button) */
+header {
+  display: flex;
+  align-items: center;
   gap: 14px;
+  margin-bottom: 20px;
 }
 
 header input {
   flex: 1;
-  border-radius: 14px;
+  padding: 16px 20px;
+  border-radius: 50px;
+  border: 1px solid #d1d5db;
   outline: none;
-  width: 100%;
+  font-size: 1.1em;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+header input:focus {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 header button {
-  border-radius: 14px;
-  background: transparent;
-  transition-duration: 200ms;
+  padding: 14px 24px;
+  border-radius: 50px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 1.1em;
+  border: none;
   cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
 }
 
 header button:hover {
-  opacity: 0.7;
+  background-color: #1d4ed8;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-header button,
-header input {
-  padding: 14px 18px;
-  border: none;
-  outline: none;
-  background: white;
+/* Styles for the description section */
+.description {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-p {
-  font-size: 0.9em;
+.description h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #2563eb; /* A blue color for the heading */
 }
 
-.main {
+.description p {
+  font-size: 1.1em;
+  color: #374151; /* A dark gray for the description text */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Todo List Items */
+ul.main {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  padding: 0;
 }
 
 .todoItem {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px;
+  justify-content: space-between;
+  padding: 16px;
   border-radius: 14px;
-  background: white;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.todoItem:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .todoItem p {
   flex: 1;
+  margin: 0;
+  font-size: 1em;
+  color: #374151;
 }
 
+/* Action Buttons */
 .actionsContainer {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 
 .actionsContainer button {
-  transition-duration: 200ms;
+  padding: 8px 12px;
+  border-radius: 50%;
   border: none;
-  background: transparent;
+  background-color: transparent;
+  color: #6b7280;
   cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .actionsContainer button:hover {
-  opacity: 0.7;
+  background-color: #f3f4f6;
+  color: #111827;
 }
 
+.actionsContainer button i {
+  pointer-events: none;
+}
+/* Action Buttons */
+.actionsContainer {
+  display: flex;
+  gap: 10px;
+}
+
+/* Action Buttons */
+.actionsContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.actionsContainer button {
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #e5e7eb;
+  color: #6b7280;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.actionsContainer button:hover {
+  background-color: #2563eb;
+  color: white;
+  transform: scale(1.1); /* Slightly enlarges the button on hover */
+}
+
+.actionsContainer button i {
+  pointer-events: none;
+  font-size: 1.1em;
+}
+
+/* Icon Specific Styles */
+.actionsContainer button.edit-btn:hover {
+  background-color: #34d399; /* Green color for edit icon hover */
+}
+
+.actionsContainer button.delete-btn:hover {
+  background-color: #f87171; /* Red color for delete icon hover */
+}
+
+/* Mobile Responsiveness */
 @media (min-width: 640px) {
   header button,
   header input {
     font-size: 1.2em;
   }
 
-  p {
-    font-size: 1em;
+  .todoItem p {
+    font-size: 1.1em;
   }
 }

@@ -30,6 +30,9 @@ function App() {
 
   return (
     <>
+      <section className="description">
+        <h1>My To-Do List</h1>
+      </section>
       <TodoInput
         handleAddTodo={handleAddTodo}
         todoValue={todoValue}
