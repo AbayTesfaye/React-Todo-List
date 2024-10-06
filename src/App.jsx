@@ -5,19 +5,26 @@ import "./index.css";
 
 function App() {
   // State to manage the list of todos
-  const [todos, setTodos] = useState(["hello", "world", "Abay"]);
+  const [todos, setTodos] = useState([]);
 
   // Function to add a new todo
-  const handleAddTodo = (newTodo) => {
+  function handleAddTodo(newTodo) {
     if (newTodo.trim()) {
       setTodos([...todos, newTodo]); // Add the new todo to the array
     }
-  };
+  }
+
+  function handleDeleteTodo(index) {
+    const newTodo = todos.filter((todo, todoId) => {
+      return todoId !== index;
+    });
+    setTodos(newTodo);
+  }
 
   return (
     <>
       <TodoInput handleAddTodo={handleAddTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} />
     </>
   );
 }

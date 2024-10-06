@@ -1,10 +1,17 @@
-function TodoCard({ children }) {
+function TodoCard(props) {
+  const { children, handleDeleteTodo, todoId } = props;
   return (
     <li className="todoItem">
       {children}
       <div className="actionContainer">
-        <i className="fa-solid fa-pen-to-square"></i>{" "}
-        <i className="fa-solid fa-trash"></i>
+        <div>
+          <button>
+            <i className="fa-solid fa-pen-to-square"></i>
+          </button>
+          <button onClick={() => handleDeleteTodo(todoId)}>
+            <i className="fa-solid fa-trash"></i>
+          </button>
+        </div>
       </div>
     </li>
   );
