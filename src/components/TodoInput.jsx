@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 function TodoInput(props) {
-  const { handleAddTodo } = props;
-  const [todoValue, setTodoValue] = useState(""); // State to track the input value
+  const { handleAddTodo, todoValue, setTodoValue } = props;
+  // State to track the input value
 
   return (
     <header>

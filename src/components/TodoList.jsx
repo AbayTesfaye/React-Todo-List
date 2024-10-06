@@ -1,7 +1,7 @@
 import TodoCard from "./TodoCard";
 
 function TodoList(props) {
-  const { todos, handleDeleteTodo } = props;
+  const { todos, handleDeleteTodo, handleEditTodo } = props;
   return (
     <ul className="main">
       {todos.map((todoItem, todoId) => (
@@ -9,6 +9,7 @@ function TodoList(props) {
           key={todoId}
           handleDeleteTodo={handleDeleteTodo}
           todoId={todoId}
+          handleEditTodo={handleEditTodo}
         >
           <p>{todoItem}</p>
         </TodoCard>

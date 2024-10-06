@@ -6,6 +6,7 @@ import "./index.css";
 function App() {
   // State to manage the list of todos
   const [todos, setTodos] = useState([]);
+  const [todoValue, setTodoValue] = useState();
 
   // Function to add a new todo
   function handleAddTodo(newTodo) {
@@ -21,10 +22,24 @@ function App() {
     setTodos(newTodo);
   }
 
+  function handleEditTodo(index) {
+    const valueToBeEdited = todos[index];
+    setTodoValue(valueToBeEdited);
+    handleDeleteTodo(index);
+  }
+
   return (
     <>
-      <TodoInput handleAddTodo={handleAddTodo} />
-      <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} />
+      <TodoInput
+        handleAddTodo={handleAddTodo}
+        todoValue={todoValue}
+        setTodoValue={setTodoValue}
+      />
+      <TodoList
+        todos={todos}
+        handleDeleteTodo={handleDeleteTodo}
+        handleEditTodo={handleEditTodo}
+      />
     </>
   );
 }
